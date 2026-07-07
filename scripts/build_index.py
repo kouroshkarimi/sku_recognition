@@ -2,7 +2,7 @@ from pathlib import Path
 
 import numpy as np
 
-from sku_recognition.retrieval.faiss_index import FaissIndex
+from candidate_generator.retrieval.faiss_index import FaissIndex
 
 embedding_dir = Path("data/embedding")
 

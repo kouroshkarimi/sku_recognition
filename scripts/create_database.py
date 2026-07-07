@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from sku_recognition.database.schema import SchemaManager
-from sku_recognition.database.database import Database
-from sku_recognition.database.repository import MetadataRepository
-from sku_recognition.gallery.scanner import GalleryScanner
+from candidate_generator.database.schema import SchemaManager
+from candidate_generator.database.database import Database
+from candidate_generator.database.repository import MetadataRepository
+from candidate_generator.gallery.scanner import GalleryScanner
 
 PROJECT_ROOT = Path("__file__").resolve().parent
 print(PROJECT_ROOT)
