@@ -2,11 +2,7 @@ from os.path import join
 
 import torch
 
-# from networks.roma.roma import RoMa
-# from networks.loftr.loftr import LoFTR
-# from networks.loftr.misc import lower_config
-# from networks.loftr.config import get_cfg_defaults
-# from networks.dkm.models.model_zoo.DKMv3 import DKMv3
+
 from networks.lightglue.superpoint import SuperPoint
 from networks.lightglue.models.matchers.lightglue import LightGlue
 
