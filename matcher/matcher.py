@@ -9,20 +9,7 @@ from matcher.preprocess import (
     read_image,
     preprocess,
 )
-
-
-
-from dataclasses import dataclass
-
-
-@dataclass
-class MatchResult:
-
-    score: float
-    num_matches: int
-    num_inliers: int
-    query_path: str
-    candidate_path: str
+from matcher.schemas import MatchResult
 
 
 class GIMMatcher:
@@ -107,11 +94,10 @@ class GIMMatcher:
         
 
         return MatchResult(
+            query_path=query_path,
             score=score,
             num_matches=num_matches,
             num_inliers=num_inliers,
-            query_path=query_path,
-            candidate_path=candidate_path,
         )
 
 
