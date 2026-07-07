@@ -1,5 +1,5 @@
-from networks.dkm.models.dkm import *
-from networks.dkm.models.encoders import *
+from matcher.networks.dkm.models.dkm import *
+from matcher.networks.dkm.models.encoders import *
 
 
 def DKMv3(weights, h, w, symmetric = True, sample_mode= "threshold_balanced", **kwargs):

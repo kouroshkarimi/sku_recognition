@@ -2,10 +2,10 @@ import math
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from networks.dkm.utils import get_tuple_transform_ops
+from matcher.networks.dkm.utils import get_tuple_transform_ops
 from einops import rearrange
-from networks.dkm.utils.local_correlation import local_correlation
-from networks.dkm.utils.kde import kde
+from matcher.networks.dkm.utils.local_correlation import local_correlation
+from matcher.networks.dkm.utils.kde import kde
 
 
 class ConvRefiner(nn.Module):

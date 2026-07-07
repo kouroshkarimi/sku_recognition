@@ -54,8 +54,8 @@ import os.path
 import torch
 from torch import nn
 
-from networks.lightglue.models.base_model import BaseModel
-from networks.lightglue.models.utils.misc import pad_and_stack
+from matcher.networks.lightglue.models.base_model import BaseModel
+from matcher.networks.lightglue.models.utils.misc import pad_and_stack
 
 
 def simple_nms(scores, radius):

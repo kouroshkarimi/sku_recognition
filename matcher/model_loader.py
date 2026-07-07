@@ -3,8 +3,8 @@ from os.path import join
 import torch
 
 
-from networks.lightglue.superpoint import SuperPoint
-from networks.lightglue.models.matchers.lightglue import LightGlue
+from matcher.networks.lightglue.superpoint import SuperPoint
+from matcher.networks.lightglue.models.matchers.lightglue import LightGlue
 
 
 class ModelLoader:

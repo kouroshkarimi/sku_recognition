@@ -1,4 +1,4 @@
-from networks.loftr.config import get_cfg_defaults as get_network_cfg
+from matcher.networks.loftr.config import get_cfg_defaults as get_network_cfg
 from trainer.config import get_cfg_defaults as get_trainer_cfg
 
 # network
