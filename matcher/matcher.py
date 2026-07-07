@@ -95,6 +95,7 @@ class GIMMatcher:
 
         return MatchResult(
             query_path=query_path,
+            candidate_path=candidate_path,
             score=score,
             num_matches=num_matches,
             num_inliers=num_inliers,

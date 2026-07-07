@@ -8,6 +8,7 @@ class MatchRequest(BaseModel):
 
 class MatchResult(BaseModel):
     query_path: str
+    candidate_path: str
     score: float
     num_matches: int
     num_inliers: int
