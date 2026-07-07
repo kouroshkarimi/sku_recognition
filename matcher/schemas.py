@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class MatchRequest(BaseModel):
     query: str
-    candidates: list[str]
+    candidates: str
 
 
 class MatchResult(BaseModel):
@@ -14,5 +14,3 @@ class MatchResult(BaseModel):
     num_inliers: int
 
 
-class MatchResponse(BaseModel):
-    results: list[MatchResult]

@@ -18,4 +18,5 @@ class GIMClient:
             timeout=60,
         )
 
-        return response.json()
+        
+        return response

@@ -18,7 +18,7 @@ def main():
     
     # Query image
     query_image = Path(
-        "data/test_images/sku_013_test.jpg"
+        "data/test_images/sku_014_test.jpg"
     )
 
 
@@ -75,11 +75,15 @@ def main():
 
     gim_client = GIMClient()
     
-    best_match = gim_client.match(
-        query=query_image,
-        candidates=candidate_paths,
-    )
-
+    for candidate_path in candidate_paths:
+        print(f"Matching {query_image} with {candidate_path}...")
+        match_result = gim_client.match(
+            query=str(query_image),
+            candidates=str(candidate_path),
+        )
+        
+        if(match_result.json()['score'] > 0):
+            print(match_result.json()['candidate_path'])
 
 if __name__ == "__main__":
     main()
