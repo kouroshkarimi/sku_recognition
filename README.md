@@ -1,7 +1,11 @@
 # SKU Recognition
 
-A high-performance **SKU Recognition** system for identifying products from images using a **coarse-to-fine visual retrieval pipeline**.
 
+<p align="center">
+  <img src="assets/header_image.jpg" width="500">
+</p>
+
+A high-performance **SKU Recognition** system for identifying products from images using a **coarse-to-fine visual retrieval pipeline**.
 The system combines **DINOv2** for semantic image embeddings, **FAISS** for efficient nearest-neighbor search, and **GIM (Geometric Image Matching)** for geometric verification, providing robust product identification even when visually similar products exist.
 
 ---
@@ -39,38 +43,6 @@ The system combines **DINOv2** for semantic image embeddings, **FAISS** for effi
                          │
                          ▼
                   Best Matching SKU
-```
-
----
-
-## Project Structure
-
-```
-sku_recognition/
-│
-├── retrieval/
-│   ├── embedding/
-│   ├── extractor.py
-│   ├── faiss_index.py
-│   └── ...
-│
-├── matcher/
-│   ├── server.py
-│   ├── client.py
-│   ├── matcher.py
-│   ├── model_loader.py
-│   └── ...
-│
-├── data/
-│   ├── gallery/
-│   ├── embedding/
-│   └── test_images/
-│
-├── scripts/
-│   ├── build_index.py
-│   └── inference.py
-│
-└── README.md
 ```
 
 ---
@@ -130,23 +102,32 @@ Best Match
 Clone the repository
 
 ```bash
-git clone https://github.com/your_username/sku_recognition.git
+git clone https://github.com/kouroshkarimi/sku_recognition.git
 
 cd sku_recognition
 ```
 
-Create a virtual environment
+Setup the environments
 
 ```bash
-conda create -n sku python=3.11
+bash setup.bsh
+```
+This install dependencies and two conda environments
 
-conda activate sku
+---
+## Build the Gallery database
+
+Generate database for all gallery images for all skus.
+
+```bash
+conda activate gim
+python scripts/create_database.py
 ```
 
-Install dependencies
+This creates
 
-```bash
-pip install -r requirements.txt
+```
+gallery.db
 ```
 
 ---
