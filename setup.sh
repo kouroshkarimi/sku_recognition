@@ -4,8 +4,8 @@ set -e
 # -----------------------------
 # Configuration
 # -----------------------------
-ENV1_NAME="sku_retrieval"
-ENV2_NAME="gim_matcher"
+ENV1_NAME="cangen"
+ENV2_NAME="loma"
 
 ENV1_REQ="envs/retrieval/requirements.txt"
 ENV2_REQ="envs/matcher/requirements.txt"
