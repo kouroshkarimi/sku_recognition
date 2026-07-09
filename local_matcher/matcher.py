@@ -1,4 +1,10 @@
-from pathlib import Path
+'''
+This module defines the GIMMatcher class, which is responsible for matching a query image
+against a candidate image using the lightglue GIM model.
+The GIMMatcher class provides a method to perform the matching and returns a MatchResult
+object containing the matching score and other relevant information.
+You can use other type of image matching models.
+'''
 
 import cv2
 import torch
@@ -13,7 +19,13 @@ from local_matcher.schemas import MatchResult
 
 
 class GIMMatcher:
-
+    '''
+    GIMMatcher is a class that performs image matching using the lightglue GIM model.
+    It takes a ModelLoader instance as input, which provides the necessary model components
+    for matching.
+    The match method takes a query image path and a candidate image path, performs the matching,
+    and returns a MatchResult object containing the matching score and other relevant information.
+    '''
     def __init__(
         self,
         loader: ModelLoader,
@@ -29,10 +41,18 @@ class GIMMatcher:
         query_path: str,
         candidate_path: str,
     ) -> MatchResult:
+        '''
+        Perform image matching between a query image and a candidate image.
+        Args:
+            query_path (str): Path to the query image.
+            candidate_path (str): Path to the candidate image.
+        Returns:
+            MatchResult: An object containing the matching score, number of matches,
+                         number of inliers, and other relevant information.'''
 
         query_image = read_image(query_path, grayscale=True)
         candidate_image = read_image(candidate_path,grayscale=True)
-        
+
         query_image, scale_query_image = preprocess(query_image,grayscale=True)
         candidate_image, scale_candidate_image = preprocess(candidate_image,grayscale=True)
 
@@ -41,7 +61,8 @@ class GIMMatcher:
         scale_candidate_image = scale_candidate_image.to(self.device)[None]
         scale_query_image = scale_query_image.to(self.device)[None]
 
-        data = dict(color0=query_image, color1=candidate_image, image0=query_image, image1=candidate_image)
+        data = dict(color0=query_image, color1=candidate_image,
+                    image0=query_image, image1=candidate_image)
         data.update(dict(gray0=query_image, gray1=candidate_image))
 
         size0 = torch.tensor(data["gray0"].shape[-2:][::-1])[None]
@@ -61,7 +82,7 @@ class GIMMatcher:
             pred.update(self.matcher({**pred, **data,
                                **{'image_size0': data['size0'],
                                   'image_size1': data['size1']}}))
-        
+
         kpts0 = torch.cat([kp * s for kp, s in zip(pred['keypoints0'], data['scale0'][:, None])])
         kpts1 = torch.cat([kp * s for kp, s in zip(pred['keypoints1'], data['scale1'][:, None])])
         m_bids = torch.nonzero(pred['keypoints0'].sum(dim=2) > -1)[:, 0]
@@ -69,7 +90,6 @@ class GIMMatcher:
         bs = data['image0'].size(0)
         kpts0 = torch.cat([kpts0[m_bids == b_id][matches[b_id][..., 0]] for b_id in range(bs)])
         kpts1 = torch.cat([kpts1[m_bids == b_id][matches[b_id][..., 1]] for b_id in range(bs)])
-        b_ids = torch.cat([m_bids[m_bids == b_id][matches[b_id][..., 0]] for b_id in range(bs)])
         mconf = torch.cat(pred['scores'])
 
         try:
@@ -83,15 +103,13 @@ class GIMMatcher:
             score = np.mean(mconf[mask].cpu().detach().numpy())
             num_matches = mconf.shape[0]
             num_inliers = np.sum(mask)
-        
-        except cv2.error as e:
-            #print(f"Error in cv2.findFundamentalMat: {e}")
+
+        except:
             print("Skipping this pair due to insufficient matches.")
             score = 0
             num_matches = 0
             num_inliers = 0
 
-        
 
         return MatchResult(
             query_path=query_path,
@@ -100,6 +118,3 @@ class GIMMatcher:
             num_matches=num_matches,
             num_inliers=num_inliers,
         )
-
-
-
