@@ -5,7 +5,7 @@
   <img src="assets/header_image.jpg" width="500">
 </p>
 
-A high-performance **SKU Recognition** system for identifying products from images using a **coarse-to-fine visual retrieval pipeline**.
+A high-performance **Visual Product (SKU) Recognition** system for identifying products from images using a **coarse-to-fine visual retrieval pipeline**.
 The system combines **DINOv2** for semantic image embeddings, **FAISS** for efficient nearest-neighbor search, and **GIM (Geometric Image Matching)** for geometric verification, providing robust product identification even when visually similar products exist.
 
 ---
