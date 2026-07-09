@@ -49,6 +49,10 @@ The system combines **DINOv2** for semantic image embeddings, **FAISS** for effi
 
 ## Pipeline
 
+<p align="center">
+  <img src="assets/pipeline.png" width="500">
+</p>
+
 ### 1. Feature Extraction
 
 Images are encoded into high-dimensional feature vectors using **DINOv2**.
