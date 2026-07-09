@@ -1,15 +1,25 @@
-from pathlib import Path
+'''
+This module defines the MetadataRepository class, which provides methods for
+inserting and retrieving metadata from the database.
+'''
 
+from pathlib import Path
 from .database import Database
 
-
 class MetadataRepository:
-
+    '''
+    MetadataRepository is a class that provides methods for inserting
+    and retrieving metadata from the database.
+    '''
     def __init__(self, database: Database):
         self.database = database
 
     def insert_gallery(self, skus, images):
-
+        '''
+        Inserts a list of SKUs and gallery images into the database.
+        Args:
+            skus (list[dict]): A list of dictionaries representing SKUs.
+            images (list[dict]): A list of dictionaries representing gallery images.'''
         conn = self.database.connect()
         cursor = conn.cursor()
 
