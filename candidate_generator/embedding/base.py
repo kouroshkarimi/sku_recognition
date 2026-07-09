@@ -1,3 +1,7 @@
+'''
+This module defines the BaseEmbeddingModel abstract class,
+which serves as an interface for embedding models used in the SKU recognition system.
+'''
 from abc import ABC, abstractmethod
 import numpy as np
 from PIL import Image
@@ -16,10 +20,9 @@ class BaseEmbeddingModel(ABC):
         np.ndarray
             Shape: (embedding_dim,)
         """
-        pass
+
 
     @property
     @abstractmethod
     def embedding_dim(self) -> int:
         """Dimension of the output embedding."""
-        pass
