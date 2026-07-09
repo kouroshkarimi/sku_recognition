@@ -1,6 +1,15 @@
+'''
+This module defines the GalleryScanner class, which is responsible 
+for scanning a gallery directory structure to identify SKU folders
+and their associated images. It collects metadata about each SKU and image,
+including unique identifiers, image paths, and dimensions.
+The scanner supports various image formats and organizes the data for
+further processing or analysis.
+'''
 from pathlib import Path
-from PIL import Image
 import uuid
+from PIL import Image
+
 
 IMAGE_EXTENSIONS = {
     ".jpg",
@@ -12,12 +21,23 @@ IMAGE_EXTENSIONS = {
 
 
 class GalleryScanner:
-
+    '''
+    A class to scan a gallery directory for SKU folders and images.
+    Attributes:
+        gallery_path (Path): The path to the gallery directory.
+    Methods:
+        scan(): Scans the gallery directory and returns lists of SKUs and images.
+    '''
     def __init__(self, gallery_path: Path):
         self.gallery_path = gallery_path
 
     def scan(self):
-
+        '''
+        Scan the gallery directory for SKU folders and images.
+        Returns:
+            skus (list): A list of dictionaries containing SKU metadata.
+            images (list): A list of dictionaries containing image metadata.
+        '''
         skus = []
         images = []
 
