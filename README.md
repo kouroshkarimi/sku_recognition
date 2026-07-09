@@ -1,4 +1,4 @@
-# SKU Recognition
+# Visual Product Recognition
 
 
 <p align="center">
@@ -106,9 +106,9 @@ Best Match
 Clone the repository
 
 ```bash
-git clone https://github.com/kouroshkarimi/sku_recognition.git
+git clone https://github.com/kouroshkarimi/visual_product_recognition.git
 
-cd sku_recognition
+cd visual_product_recognition
 ```
 
 Setup the environments
