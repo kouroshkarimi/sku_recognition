@@ -29,7 +29,7 @@ query_image = Path(
 model = DinoV2Embedding()
 extractor = EmbeddingExtractor(model)
 
-    # Load FAISS
+# Load FAISS
 index = FaissIndex(
     embedding_dim=model.embedding_dim
 )
@@ -56,7 +56,6 @@ gallery_paths = np.load(
 )
 
 print()
-
 print("Top-5 Matches")
 print("=" * 50)
 
@@ -75,6 +74,7 @@ candidate_paths = [
 
 gim_client = GIMClient()
 
+# Match query image with candidates using GIM server
 for candidate_path in candidate_paths:
     print(f"Matching {query_image} with {candidate_path}...")
     match_result = gim_client.match(
