@@ -1,14 +1,23 @@
+'''
+This module is responsible for loading the model weights and initializing the model components
+based on the specified model name. It supports loading the "gim_lightglue" model,
+which consists of a SuperPoint detector and a LightGlue matcher.
+The model weights are loaded from a checkpoint file,
+and the components are set to evaluation mode and moved to the specified device (CPU or GPU).
+This encoder model use fine features to match the query and candidate images.
+In the other hand dinov2 uses coarse features to match the query and candidate images.
+'''
 from os.path import join
-
 import torch
-
 
 from local_matcher.networks.lightglue.superpoint import SuperPoint
 from local_matcher.networks.lightglue.models.matchers.lightglue import LightGlue
 
 
 class ModelLoader:
-
+    '''
+    ModelLoader is a class that loads the model weights and initializes the model components
+    '''
     def __init__(
         self,
         model_name: str = "gim_lightglue",
@@ -29,7 +38,13 @@ class ModelLoader:
         self.load()
 
     def load(self):
-
+        '''
+        This method loads the model weights and initializes the model components
+        based on the specified model name.
+        It supports loading the "gim_lightglue" model,
+        which consists of a SuperPoint detector and a LightGlue matcher.
+        The model weights are loaded from a checkpoint file.
+        '''
         if self.model_name == "gim_lightglue":
 
             ckpt = "gim_lightglue_100h.ckpt"
@@ -100,7 +115,6 @@ class ModelLoader:
             )
 
             self.detector.eval().to(self.device)
-
             self.matcher.eval().to(self.device)
 
         else:
