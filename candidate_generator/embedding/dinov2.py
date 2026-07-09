@@ -1,3 +1,9 @@
+'''
+This module defines the DinoV2Embedding class, which is responsible for generating embeddings
+using the DINOv2 model. It provides methods to encode images into embeddings that can be
+used for similarity search and matching. The class supports different DINOv2 model variants
+and allows for customization of the device used for inference (CPU or GPU).
+'''
 from __future__ import annotations
 
 from typing import Optional
@@ -12,7 +18,9 @@ from .transforms import build_transform
 
 
 class DinoV2Embedding(BaseEmbeddingModel):
-
+    '''
+    DinoV2Embedding is a class that generates embeddings using the DINOv2 model.
+    '''
     def __init__(
         self,
         model_name: str = "dinov2_vitb14",
