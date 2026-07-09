@@ -1,8 +1,6 @@
 from __future__ import annotations
-
 from pathlib import Path
 from typing import Iterable
-
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
@@ -28,7 +26,13 @@ class EmbeddingBuilder:
         image_paths: Iterable[Path],
         output_dir: Path,
     ) -> None:
-
+        '''
+        Build embeddings for a gallery of images and save them to disk.
+        Args:
+            image_paths: Iterable of image paths to process.
+            output_dir: Directory to save the embeddings and metadata.
+        Returns:
+            None'''
         output_dir.mkdir(parents=True, exist_ok=True)
 
         embeddings = []
