@@ -265,6 +265,7 @@ This approach provides:
 ## Future Improvements
 
 - OCR-based verification
+- Huge retrieval database (Huge number of products)
 - Brand recognition
 - Learned reranking model
 - Product metadata fusion
