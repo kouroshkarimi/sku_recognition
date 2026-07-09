@@ -110,7 +110,7 @@ cd sku_recognition
 Setup the environments
 
 ```bash
-bash setup.bsh
+bash setup.sh
 ```
 This install dependencies and two conda environments
 
@@ -120,7 +120,7 @@ This install dependencies and two conda environments
 Generate database for all gallery images for all skus.
 
 ```bash
-conda activate gim
+conda activate loma
 python scripts/create_database.py
 ```
 
@@ -128,6 +128,24 @@ This creates
 
 ```
 gallery.db
+```
+
+---
+
+## Build the Gallery Embedding vectors
+
+Generate embeddings for all gallery images.
+
+```bash
+python scripts/build_embeddings.py
+```
+
+This creates
+
+```
+embedding.npy
+ids.npy
+paths.npyy
 ```
 
 ---
@@ -144,7 +162,6 @@ This creates
 
 ```
 gallery.index
-paths.npy
 ```
 
 ---
@@ -154,7 +171,7 @@ paths.npy
 Start the GIM microservice.
 
 ```bash
-uvicorn matcher.server:app --host 0.0.0.0 --port 8000
+uvicorn matcher_server:app --host 0.0.0.0 --port 8000
 ```
 
 Health check
@@ -167,9 +184,10 @@ GET /health
 
 ## Inference
 
-Run image retrieval.
+Run image retrieval in the another conda env.
 
 ```bash
+conda activate cangen
 python scripts/inference.py
 ```
 
