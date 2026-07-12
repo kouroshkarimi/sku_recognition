@@ -124,7 +124,7 @@ This install dependencies and two conda environments
 Generate database for all gallery images for all skus.
 
 ```bash
-conda activate loma
+conda activate cangen
 python scripts/create_database.py
 ```
 
@@ -149,7 +149,7 @@ This creates
 ```
 embedding.npy
 ids.npy
-paths.npyy
+paths.npy
 ```
 
 ---
@@ -175,6 +175,7 @@ gallery.index
 Start the GIM microservice.
 
 ```bash
+conda activate loma
 uvicorn matcher_server:app --host 0.0.0.0 --port 8000
 ```
 

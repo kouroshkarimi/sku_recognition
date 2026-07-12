@@ -26,10 +26,11 @@ eval "$(conda shell.bash hook)"
 # -----------------------------
 echo "Creating ${ENV1_NAME}..."
 
-conda create -y -n ${ENV1_NAME} python=${3.12.13}
+conda create -y -n ${ENV1_NAME} python=3.12.13
 
 conda activate ${ENV1_NAME}
 
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
 pip install --upgrade pip
 pip install -r ${ENV1_REQ}
 
@@ -40,10 +41,11 @@ conda deactivate
 # -----------------------------
 echo "Creating ${ENV2_NAME}..."
 
-conda create -y -n ${ENV2_NAME} python=${3.9.25}
+conda create -y -n ${ENV2_NAME} python=3.9.25
 
 conda activate ${ENV2_NAME}
 
+pip install torch==2.3.0 torchvision==0.18.0 torchaudio==2.3.0 --index-url https://download.pytorch.org/whl/cu121
 pip install --upgrade pip
 pip install -r ${ENV2_REQ}
 

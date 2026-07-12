@@ -5,7 +5,7 @@ astroid==4.0.4
 certifi==2026.6.17
 charset-normalizer==3.4.7
 click==8.4.2
-dill @ file:///home/task_C_6N7gOmS2i_q_0/croot/dill_1783436174616/work
+dill==0.4.1
 faiss-cpu==1.14.3
 filelock==3.29.0
 fsspec==2026.4.0
@@ -16,34 +16,22 @@ httpcore==1.0.9
 httpx==0.28.1
 huggingface_hub==0.36.2
 idna==3.18
-isort @ file:///home/task_177306919753778/croot/isort_1773069242324/work
+isort==8.0.1
 Jinja2==3.1.6
 markdown-it-py==4.2.0
 MarkupSafe==3.0.3
-mccabe @ file:///opt/conda/conda-bld/mccabe_1644221741721/work
+mccabe==0.7.0
 mdurl==0.1.2
 mpmath==1.3.0
 networkx==3.6.1
 numpy==2.4.4
-nvidia-cublas-cu12==12.1.3.1
-nvidia-cuda-cupti-cu12==12.1.105
-nvidia-cuda-nvrtc-cu12==12.1.105
-nvidia-cuda-runtime-cu12==12.1.105
-nvidia-cudnn-cu12==8.9.2.26
-nvidia-cufft-cu12==11.0.2.54
-nvidia-curand-cu12==10.3.2.106
-nvidia-cusolver-cu12==11.4.5.107
-nvidia-cusparse-cu12==12.1.0.106
-nvidia-nccl-cu12==2.20.5
-nvidia-nvjitlink-cu12==12.9.86
-nvidia-nvtx-cu12==12.1.105
 opencv-python==5.0.0.93
 packaging==26.0
 pillow==12.2.0
 platformdirs==4.10.0
 psutil==7.2.2
 Pygments==2.20.0
-pylint @ file:///home/task_177753944784207/croot/pylint_1777539925630/work
+pylint==4.0.5
 PyYAML==6.0.3
 regex==2026.6.28
 requests==2.34.2
@@ -51,15 +39,11 @@ rich==15.0.0
 safetensors==0.8.0
 setuptools==82.0.1
 shellingham==1.5.4
-sku_recognition @ file:///home/thekourosh/para/projects/sku_recognition
 SQLAlchemy==2.0.51
 sympy==1.14.0
 timm==1.0.27
 tokenizers==0.19.1
-tomlkit @ file:///home/task_176289661655550/conda-bld/tomlkit_1762896639789/work
-torch==2.3.0+cu121
-torchaudio==2.3.0+cu121
-torchvision==0.18.0+cu121
+tomlkit==0.13.3
 tqdm==4.68.3
 transformers==4.43.4
 typer==0.26.8
